@@ -1,6 +1,11 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: rgb(122, 216, 194);
 
 body {
   background-color: $primary-background;
+}
+
+@mixin standard-flex($direction){
+  display: flex;
+  flex-direction: $direction;
 }
