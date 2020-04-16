@@ -28,11 +28,11 @@
 // }
 
 // fetchUserData().then(data => {
-//   userData = data.userData;
-//   roomData = data.roomData;
-//   bookingsData = data.bookingsData;
-  
-// }).then(function() {
+//   userData = data.users;
+//   roomData = data.rooms;
+//   bookingsData = data.bookings; 
+// })
+//  .then(function() {
 //   index.startApp(userData, roomData, bookingsData);
 // })
 //   .catch(error => console.log(error.message))

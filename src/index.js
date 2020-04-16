@@ -8,7 +8,8 @@ import $ from 'jquery';
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+// import './images/turing-logo.png'
+import '../src/images/wil-stewart-KjMy5dLL1s0-unsplash.jpg'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -34,9 +35,9 @@ function fetchData() {
   return Promise.all([fetchedUserData, fetchedRoomData, fetchedBookingsData])
     .then(response => {
       let dataObj = {};
-      dataObj.userData = response[0].userData;
-      dataObj.roomData = response[1].roomData;
-      dataObj.bookingsData = response[2].bookingsData;
+      dataObj.userData = response[0].users;
+      dataObj.roomData = response[1].rooms;
+      dataObj.bookingsData = response[2].bookings;
       console.log(dataObj);
       return dataObj;
     });
@@ -53,4 +54,4 @@ fetchData().then(data => {
 //   index.startApp(userData, roomData, bookingsData);
 // })
 
-fetchData();
+fetchData(userData, roomData, bookingsData);
