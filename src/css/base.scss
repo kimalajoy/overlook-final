@@ -1,11 +1,72 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: rgb(122, 216, 194);
+@import 'style';
 
-body {
-  background-color: $primary-background;
+* {
+  box-sizing: border-box;
+  font-family: 'Anton', sans-serif;
 }
 
-@mixin standard-flex($direction){
-  display: flex;
-  flex-direction: $direction;
+body {
+  @include standard-flex(column);
+  background-image: url('../images/teo-leguay-vqaLqlWPb2c-unsplash.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.greeting {
+  @include standard-flex(row);
+  align-content: center;
+  justify-content: center;
+}
+
+#login {
+  font-size: 1.75em;
+}
+
+.login-container {
+  @include standard-flex(column);
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  padding: 50px 100px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  width: 25em;
+  // height: 40em;
+}
+
+#form-text, #form-password {
+  font-size: large;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+::placeholder {
+  color: black;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.login-container input {
+  margin-bottom: 30px;
+  padding: 2px 0px;
+  padding-bottom: 5px;
+  width: 250px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid;
+  border-bottom-color: white;
+}
+
+#button {
+  padding: 20px 30px;
+  margin-top: 30px;
+  outline: none;
+  border: none;
+  font-size: medium;
+  font-weight: 600;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }

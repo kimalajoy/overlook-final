@@ -1,6 +1,8 @@
-@import 'base';
+// @import 'base';
 
-* {
-  box-sizing: border-box;
+$primary-background: rgb(122, 216, 194);
+
+@mixin standard-flex($direction){
+  display: flex;
+  flex-direction: $direction;
 }
-
