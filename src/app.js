@@ -26,13 +26,33 @@ class App {
     let username = this.usernameInput.val();
     let password = this.passwordInput.val();
 
+    
+
     if (username === 'manager' && password === 'overlook2020') {
       this.currentUser = new Manager();
       this.loadPage();
     } else if (username.includes('customer') && password === 'overlook2020') {
+      let userId = Number(username.replace('customer', ''));
+
+      if (!this.isValidUserId(userId)) {
+        return;
+      }
+
       this.currentUser = new Customer(username);
       this.loadPage();
     }
+  }
+
+  isValidUserId(userId) {
+    if (isNaN(userId)) {
+      return false;
+    }
+
+    if (userId < 1 || userId > 50) {
+      return false;
+    }
+
+    return true;
   }
 
   logout() {
