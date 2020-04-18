@@ -25,12 +25,11 @@ class App {
     this.currentUser = null;
     let username = this.usernameInput.val();
     let password = this.passwordInput.val();
-    console.log('login!', username, password);
 
-    if (username === 'manager') {
+    if (username === 'manager' && password === 'overlook2020') {
       this.currentUser = new Manager();
       this.loadPage();
-    } else if (username.includes('customer')) {
+    } else if (username.includes('customer') && password === 'overlook2020') {
       this.currentUser = new Customer(username);
       this.loadPage();
     }
@@ -63,7 +62,6 @@ class App {
       customerContainer.addClass('hidden');
       logoutButton.addClass('hidden');
     }
-
   }
 }
 
