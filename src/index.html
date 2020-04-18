@@ -6,28 +6,29 @@
   </head>
   <body>
     <h1 class='greeting'>Welcome to the Snowed Inn</h1>
-<!-- login page -->
-    <div class="login-container">
-      <h2 id="login">Login</h2>
-      <div class="login-box">
-        <input type="text" id="form-text" placeholder="Username" />
-        <input type="password" id="form-password" placeholder="Password" />
-        <button id="button">Send</button>
+    <div id="main">
+      <!-- login page -->
+      <div class="login-container">
+        <h2 id="login">Login</h2>
+        <div class="login-box">
+          <input type="text" id="username" placeholder="Username" />
+          <input type="password" id="password" placeholder="Password" />
+          <button id="loginButton">Send</button>
+        </div>
+      </div>
+      <!-- manager view -->
+      <div class="manager-container hidden">
+        <h2>Welcome Manager</h2>
+        <section class="total-rooms"></section>
+        <section class="total-revenue"></section>
+        <section class="percent-rooms"></section>
+      </div>
+      <!-- customer view -->
+      <div class="customer-container hidden">
+        <h2>Welcome Customer</h2>
+        <section class="customer-bookings"></section>
+        <section class="total-amount"></section>
       </div>
     </div>
-
-    <!-- manager view -->
-    <section class="manager-section hidden">
-      <h2>Welcome Manager</h2>
-      <section class="total-rooms"></section>
-      <section class="total-revenue"></section>
-      <section class="percent-rooms"></section>
-    </section>
-<!-- customer view -->
-    <section class="customer-section hidden">
-      <h2>Welcome Customer</h2>
-      <section class="customer-bookings"></section>
-      <section class="total-amount"></section>
-    </section>
   </body>
 </html>

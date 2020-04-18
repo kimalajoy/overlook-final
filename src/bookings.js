@@ -1,7 +1,37 @@
-import User from '../src/user.js';
-
-class Bookings extends User {
-  constructor () {
-    super()
+class Bookings {
+  constructor (bookingsData, roomData) {
+    this.bookingsData = bookingsData;
+    this.roomData = roomData;
   }
+
+  getAllBookings() {
+
+  }
+  
+  getAvailableRoomsByDate() {
+
+  }
+
+  getTotalRevenueByDate() {
+
+  }
+
+  getPercentOccupiedByDate() {
+
+  }
+
+  listOfBookingsByUser() {
+
+  }
+
+  getTotalBookingsCostByUser() {
+
+  }
+
+
+
 }
+
+
+
+export default Bookings;

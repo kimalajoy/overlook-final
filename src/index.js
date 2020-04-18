@@ -6,18 +6,20 @@ import $ from 'jquery';
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-import './css/style.scss'
+import './css/style.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 import '../src/images/wil-stewart-KjMy5dLL1s0-unsplash.jpg';
-
 console.log('This is the JavaScript entry file - your code begins here.');
 
-let userData;
-let roomData;
-let bookingsData;
+import App from '../src/app.js';
+import User from '../src/user.js';
+import Bookings from '../src/bookings.js';
 
+let app;
+let user;
+let bookings;
 
 function fetchData() {
   let fetchedUserData =
@@ -32,7 +34,6 @@ function fetchData() {
     fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
       .then(response => response.json());
 
-
   return Promise.all([fetchedUserData, fetchedRoomData, fetchedBookingsData])
     .then(response => {
       let dataObj = {};
@@ -44,15 +45,10 @@ function fetchData() {
     });
 }
 
-
 fetchData().then(data => {
-  userData = data.userData;
-  roomData = data.roomData;
-  bookingsData = data.bookingsData;
-  
-}).catch(error => console.log(error.message))
-// .then(function() {
-//   index.startApp(userData, roomData, bookingsData);
-// })
+  user = new User(data.userData);
+  bookings = new Bookings(data.bookingsData, data.roomData);
+  app = new App(user, bookings);
+    console.log(app);
+}).catch(error => console.log(error.message));
 
-fetchData(userData, roomData, bookingsData);
