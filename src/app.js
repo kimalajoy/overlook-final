@@ -15,8 +15,10 @@ class App {
     this.loginButton = $('#loginButton');
     this.usernameInput = $('#username');
     this.passwordInput = $('#password');
+    this.logoutButton = $('#logoutButton');
 
     this.loginButton.on('click', this.login.bind(this));
+    this.logoutButton.on('click', this.logout.bind(this));
   }
 
   login() {
@@ -37,17 +39,29 @@ class App {
   logout() {
     this.currentUser = null;
     this.loadPage();
+    console.log('logout!');
   }
 
-// Hide/unhide section of page as necessary
+  // Hide/unhide section of page as necessary
   loadPage() {
-    // let loginContainer = $('.login-container')
+    let loginContainer = $('.login-container');
+    let managerContainer = $('.manager-container');
+    let customerContainer = $('.customer-container');
+    let logoutButton = $('#logoutButton');
+
     if (this.currentUser instanceof Manager) {
-      $('.login-container').hide();
-      $('#manager-container').show();
+      loginContainer.hide();
+      managerContainer.removeClass('hidden');
+      logoutButton.removeClass('hidden');
     } else if (this.currentUser instanceof Customer) {
-      $('.login-container').hide();
-      $('#customer-container').show();
+      loginContainer.hide();
+      customerContainer.removeClass('hidden');
+      logoutButton.removeClass('hidden');
+    } else {
+      loginContainer.show();
+      managerContainer.addClass('hidden');
+      customerContainer.addClass('hidden');
+      logoutButton.addClass('hidden');
     }
 
   }
