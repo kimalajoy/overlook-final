@@ -93,6 +93,11 @@ class App {
     this.registry.listOfBookingsByUser(43);
     this.registry.getTotalRevenueByDate('2020/01/24');
     this.registry.getTotalBookingsCostByUser(43);
+    // let bookingPromise = this.registry.bookRoomByRoomNumber(1, '2020/04/22', 43);
+    // console.log('bookingResponse', bookingPromise);
+
+    let deletePromise = this.registry.deleteBookingRequest('5fwrgu4i7k55hl6wq');
+    console.log('deletePromise', deletePromise)
   
   }
 

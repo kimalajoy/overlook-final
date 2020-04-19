@@ -42,6 +42,48 @@ class Registry {
     }, 0);
     return totalUserRevenue;
   }
+
+  //post and delete methods
+  
+  bookRoomByRoomNumber(roomNumber, date, userId) {
+    let bookingRequest = {
+      userID: userId,
+      date,
+      roomNumber
+    };
+
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(bookingRequest),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    let response = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', options).then(response => response.json());
+
+    console.log(response);
+    return response;
+  }
+
+  deleteBookingRequest(id) {
+    let deniedBookingRequest = {
+      id
+    };
+
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(deniedBookingRequest)
+    };
+    let response = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', options).then(response => response.json());
+
+    console.log(response);
+    return response;
+  }
+
 }
+
 
 export default Registry;
