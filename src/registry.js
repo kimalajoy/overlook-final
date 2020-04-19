@@ -27,7 +27,7 @@ class Registry {
     return percentOccupied;
   }
 
-
+  //user specific methods
   listOfBookingsByUser(userId) {
     let userBookings = this.bookingsData.filter(booking => booking.userID === userId);
     return userBookings;
@@ -39,15 +39,9 @@ class Registry {
       let room = this.roomData.find(room => room.number === bookedRoom.roomNumber)
       acc += room.costPerNight;
       return acc;
-    }, 0)
-    console.log(totalUserRevenue)
+    }, 0);
     return totalUserRevenue;
   }
-
-
-
 }
-
-
 
 export default Registry;
