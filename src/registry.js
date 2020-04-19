@@ -5,7 +5,7 @@ class Registry {
   }
 
   getAllBookings() {
-
+    
   }
   
   getAvailableRoomsByDate() {

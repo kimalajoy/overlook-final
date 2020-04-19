@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
 
-describe('Bookings', () => {
+describe('Registry', () => {
 
 
   beforeEach(() => {

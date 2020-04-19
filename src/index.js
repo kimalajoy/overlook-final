@@ -15,9 +15,8 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 import App from '../src/app.js';
 import User from '../src/user.js';
-import Registry from '../src/bookings.js';
+import Registry from '../src/registry.js';
 
-let app;
 let user;
 let registry;
 
@@ -48,7 +47,6 @@ function fetchData() {
 fetchData().then(data => {
   user = new User(data.userData);
   registry = new Registry(data.bookingsData, data.roomData);
-  app = new App(user, registry);
-    console.log(app);
+  new App(user, registry);
 }).catch(error => console.log(error.message));
 
