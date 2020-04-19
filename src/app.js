@@ -31,7 +31,8 @@ class App {
 
     if (username === 'manager' && password === 'overlook2020') {
       this.currentUser = new Manager();
-      this.loadPage();
+      this.loadUserView();
+      this.loadManagerDashboard ();
     } else if (username.includes('customer') && password === 'overlook2020') {
       let userId = Number(username.replace('customer', ''));
 
@@ -40,7 +41,8 @@ class App {
       }
 
       this.currentUser = new Customer(username);
-      this.loadPage();
+      this.loadUserView();
+      this.loadCustomerDashboard();
     }
   }
 
@@ -58,12 +60,12 @@ class App {
 
   logout() {
     this.currentUser = null;
-    this.loadPage();
+    this.loadUserView();
     console.log('logout!');
   }
 
   // Hide/unhide section of page as necessary
-  loadPage() {
+  loadUserView() {
     let loginContainer = $('.login-container');
     let managerContainer = $('.manager-container');
     let customerContainer = $('.customer-container');
@@ -83,6 +85,19 @@ class App {
       customerContainer.addClass('hidden');
       logoutButton.addClass('hidden');
     }
+  }
+
+  loadManagerDashboard () {
+    this.registry.getAvailableRoomsByDate('2020/01/24');
+    this.registry.getPercentOccupiedByDate('2020/01/24');
+    this.registry.listOfBookingsByUser(43);
+    this.registry.getTotalRevenueByDate('2020/01/24');
+    this.registry.getTotalBookingsCostByUser(43);
+  
+  }
+
+  loadCustomerDashboard () {
+
   }
 }
 

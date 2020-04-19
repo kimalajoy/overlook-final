@@ -4,28 +4,44 @@ class Registry {
     this.roomData = roomData;
   }
 
-  getAllBookings() {
-    
-  }
-  
-  getAvailableRoomsByDate() {
-
-  }
-
-  getTotalRevenueByDate() {
-
+  //dashboard methods
+  getAvailableRoomsByDate(date) {
+    let bookedRooms = this.bookingsData.filter(booking => booking.date === date).length;
+    let roomsAvailable = this.roomData.length - bookedRooms;
+    return roomsAvailable;
   }
 
-  getPercentOccupiedByDate() {
-
+  getTotalRevenueByDate(date) {
+    let bookedRooms = this.bookingsData.filter(booking => booking.date === date);
+    let totalRevenue = bookedRooms.reduce((acc, bookedRoom) => {
+      let room = this.roomData.find(room => room.number === bookedRoom.roomNumber)
+      acc += room.costPerNight;
+      return acc;
+    }, 0)
+    return totalRevenue;
   }
 
-  listOfBookingsByUser() {
-
+  getPercentOccupiedByDate(date) {
+    let bookedRooms = this.bookingsData.filter(booking => booking.date === date).length;
+    let percentOccupied = (bookedRooms / this.roomData.length) * 100;
+    return percentOccupied;
   }
 
-  getTotalBookingsCostByUser() {
 
+  listOfBookingsByUser(userId) {
+    let userBookings = this.bookingsData.filter(booking => booking.userID === userId);
+    return userBookings;
+  }
+
+  getTotalBookingsCostByUser(userId) {
+    let userBookings = this.bookingsData.filter(booking => booking.userID === userId);
+    let totalUserRevenue = userBookings.reduce((acc, bookedRoom) => {
+      let room = this.roomData.find(room => room.number === bookedRoom.roomNumber)
+      acc += room.costPerNight;
+      return acc;
+    }, 0)
+    console.log(totalUserRevenue)
+    return totalUserRevenue;
   }
 
 
