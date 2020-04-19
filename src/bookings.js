@@ -1,4 +1,4 @@
-class Bookings {
+class Registry {
   constructor (bookingsData, roomData) {
     this.bookingsData = bookingsData;
     this.roomData = roomData;
@@ -34,4 +34,4 @@ class Bookings {
 
 
 
-export default Bookings;
+export default Registry;

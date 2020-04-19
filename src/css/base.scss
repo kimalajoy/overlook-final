@@ -31,7 +31,7 @@ body {
   font-size: 1.75em;
 }
 
-.login-container {
+.login-container, .manager-container, .customer-container {
   @include standard-flex(column);
   align-items: center;
   align-self: center;

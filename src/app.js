@@ -3,9 +3,9 @@ import Manager from '../src/manager.js';
 import Customer from '../src/customer.js';
 
 class App {
-  constructor(user, bookings) {
+  constructor(user, registry) {
     this.user = user;
-    this.bookings = bookings;
+    this.registry = registry;
     this.currentUser = null;
 
     this.initialize();
@@ -26,7 +26,8 @@ class App {
     let username = this.usernameInput.val();
     let password = this.passwordInput.val();
 
-    
+    //todo: remove this
+    password = 'overlook2020'
 
     if (username === 'manager' && password === 'overlook2020') {
       this.currentUser = new Manager();
@@ -86,11 +87,3 @@ class App {
 }
 
 export default App;
-
-
-// username: manager
-// password: overlook2020
-// If it is a customer logging in, they should log in with the following credentials:
-
-// username: customer50 (where 50 is the ID of the user)
-// password: overlook2020
