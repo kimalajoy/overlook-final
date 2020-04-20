@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Registry from '../src/registry.js';
-import bookingsData from '/Users/home/turing/overlook-final/src/dataSets/bookingsData.js';
-import roomData from '/Users/home/turing/overlook-final/src/dataSets/roomsData.js';
+import bookingsData from '../src/dataSets/bookingsData.js';
+import roomData from '../src/dataSets/roomsData.js';
 
 describe('Registry', () => {
   let registry;
@@ -19,7 +19,7 @@ describe('Registry', () => {
     it('should return the rooms available for the date given', () => {
       
       expect(registry.getAvailableRoomsByDate('2020/02/04')).to.equal(4)
-    })
+    });
   });
 
   describe('getTotalRevenueByDate', () => {
@@ -27,7 +27,7 @@ describe('Registry', () => {
     it('should return the total revenue for a given date', () => {
 
       expect(registry.getTotalRevenueByDate('2020/02/04')).to.equal(340.17)
-    })
+    });
   });
 
   describe('getPercentOccupiedByDate', () => {
@@ -35,7 +35,7 @@ describe('Registry', () => {
     it('should show the percent occupied by a given date', () => {
 
       expect(registry.getPercentOccupiedByDate('2020/02/04')).to.equal(20)
-    })
+    });
   });
   
   describe('listOfBookingsByUser', () => {
@@ -51,7 +51,7 @@ describe('Registry', () => {
           roomServiceCharges: []
         }
       ])
-    })
+    });
 
   });
 
@@ -60,8 +60,7 @@ describe('Registry', () => {
     it('should give the total revenue produced by a user given a userID', () => {
 
       expect(registry.getTotalBookingsCostByUser(1)).to.equal(477.38)
-    })
-
+    });
   });
 
 })
