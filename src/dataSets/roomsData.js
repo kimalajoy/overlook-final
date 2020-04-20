@@ -8,7 +8,7 @@ const roomsData = [
     "costPerNight": 358.4
   },
   {
-    "number": 2,
+    "number": 12,
     "roomType": "suite",
     "bidet": false,
     "bedSize": "full",

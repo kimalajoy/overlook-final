@@ -14,7 +14,7 @@ class Registry {
   getTotalRevenueByDate(date) {
     let bookedRooms = this.bookingsData.filter(booking => booking.date === date);
     let totalRevenue = bookedRooms.reduce((acc, bookedRoom) => {
-      let room = this.roomData.find(room => room.number === bookedRoom.roomNumber)
+      let room = this.roomData.find(suite => suite.number === bookedRoom.roomNumber)
       acc += room.costPerNight;
       return acc;
     }, 0)
@@ -36,7 +36,7 @@ class Registry {
   getTotalBookingsCostByUser(userId) {
     let userBookings = this.bookingsData.filter(booking => booking.userID === userId);
     let totalUserRevenue = userBookings.reduce((acc, bookedRoom) => {
-      let room = this.roomData.find(room => room.number === bookedRoom.roomNumber)
+      let room = this.roomData.find(suite => suite.number === bookedRoom.roomNumber)
       acc += room.costPerNight;
       return acc;
     }, 0);
