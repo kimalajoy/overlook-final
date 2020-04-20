@@ -20,20 +20,45 @@
       <!-- manager view -->
       <div class="manager-container hidden">
         <h2>Welcome Manager</h2>
-        <section class="total-rooms"></section>
-        <h3>Here are the number of rooms available for today:</h3>
-        <section class="total-revenue"></section>
-        <h3>Total Revenue for today:</h3>
-        <section class="percent-rooms"></section>
-        <h3>The Snowed Inn is this full today:</h3>
+        <!-- dashboard -->
+        <div> 
+          <section class="total-rooms"></section>
+          <h3>Here are the number of rooms available for today:</h3>
+          <section class="total-revenue"></section>
+          <h3>Total Revenue for today:</h3>
+          <section class="percent-rooms"></section>
+          <h3>The Snowed Inn is this full today:</h3>
+        </div>
+        <!-- interaction -->
+        <label for="customer-list">Current Customers:</label>
+        <select name="" id="customer-list"></select>
+        <input type="date">
+        <label for="room-select">Select an Available Room to Book:</label>
+        <select name="" id="room-select"></select>
+        <button>Add a Booking</button>
+        <label for="booking-delete">Select an Available Booking to Remove:</label>
+        <select name="" id="booking-delete"></select>
+        <button>Remove a Booking</button>
       </div>
       <!-- customer view -->
       <div class="customer-container hidden">
         <h2>Welcome Customer</h2>
-        <section class="customer-bookings"></section>
-        <h3>Here are Rooms you have booked with the Snowed Inn:</h3>
-        <section class="total-amount"></section>
-        <h3>Here is the total amount you have spent staying here:</h3>
+        <!-- dashboard -->
+        <div>
+          <section class="customer-bookings"></section>
+          <h3>Here are Rooms you have booked with the Snowed Inn:</h3>
+          <section class="total-amount"></section>
+          <h3>Here is the total amount you have spent staying here:</h3>
+        </div>
+        <!-- interactions -->
+        <div>
+          <input type="date">
+          <label for="customer-room-select">Select an Available Room to Book:</label>
+        <select name="" id="customer-room-select"></select>
+        <label for="customer-room-available">What Kind of Room are You Looking to Book:</label>
+        <select name="" id="customer-room-available"></select>
+        <button>Add a Booking</button>
+        </div>
       </div>
     </div>
   </body>

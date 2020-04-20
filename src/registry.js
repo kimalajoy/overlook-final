@@ -44,7 +44,6 @@ class Registry {
   }
 
   //post and delete methods
-  
   bookRoomByRoomNumber(roomNumber, date, userId) {
     let bookingRequest = {
       userID: userId,

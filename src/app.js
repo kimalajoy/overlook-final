@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Manager from '../src/manager.js';
 import Customer from '../src/customer.js';
+import domUpdates from '../src/domUpdates.js';
 
 class App {
   constructor(user, registry) {
@@ -96,9 +97,10 @@ class App {
     // let bookingPromise = this.registry.bookRoomByRoomNumber(1, '2020/04/22', 43);
     // console.log('bookingResponse', bookingPromise);
 
-    let deletePromise = this.registry.deleteBookingRequest('5fwrgu4i7k55hl6wq');
-    console.log('deletePromise', deletePromise)
-  
+    // let deletePromise = this.registry.deleteBookingRequest('5fwrgu4i7k55hl7k7');
+    // console.log('deletePromise', deletePromise)
+    let allCustomerList = this.user.listAllCustomers();
+    domUpdates.makeCustomerList(allCustomerList);
   }
 
   loadCustomerDashboard () {
