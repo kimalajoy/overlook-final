@@ -26,6 +26,21 @@ const domUpdates = {
     customerBookings.append(` $${allBookingsList}`);
   },
 
+  showNumberOfRoomsAvailableToday (numOfRooms) {
+    let numberOfRooms = $('.number-rooms');
+    numberOfRooms.append(` ${numOfRooms}`)
+  },
+
+  showTotalRevenue (totalMoney) {
+    let todaysRevenue = $('.todays-revenue');
+    todaysRevenue.append(` $${totalMoney}`)
+  },
+
+  showPercentFull (percentFull) {
+    let todaysRevenue = $('.percent-full');
+    todaysRevenue.append(` ${percentFull}%`)
+  }
+
 }
 
 

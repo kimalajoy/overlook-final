@@ -111,6 +111,16 @@ class App {
     $('#customer-list').on('change', this.managerSelectCustomer.bind(this));
 
     $('#CustomerBookingDate').on('change', this.managerSelectCustomerBookingDate.bind(this));
+ 
+    let numOfRooms = this.registry.getAvailableRoomCountByDate(date);
+    domUpdates.showNumberOfRoomsAvailableToday(numOfRooms);
+
+    let totalMoney = this.registry.getTotalRevenueByDate(date);
+    domUpdates.showTotalRevenue(totalMoney);
+
+    let percentFull = this.registry.getPercentOccupiedByDate(date);
+    domUpdates.showPercentFull(percentFull);
+
   }
 
   managerSelectCustomer(e) {
