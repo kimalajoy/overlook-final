@@ -14,11 +14,11 @@ describe('Registry', () => {
     expect(registry).to.be.an.instanceOf(Registry);
   });
 
-  describe('getAvailableRoomsByDate', () => {
+  describe('getAvailableRoomCountByDate', () => {
     
     it('should return the rooms available for the date given', () => {
       
-      expect(registry.getAvailableRoomsByDate('2020/02/04')).to.equal(4)
+      expect(registry.getAvailableRoomCountByDate('2020/02/04')).to.equal(4)
     });
   });
 
@@ -59,7 +59,7 @@ describe('Registry', () => {
 
     it('should give the total revenue produced by a user given a userID', () => {
 
-      expect(registry.getTotalBookingsCostByUser(1)).to.equal(477.38)
+      expect(registry.getTotalBookingsCostByUser(1)).to.equal(477)
     });
   });
 

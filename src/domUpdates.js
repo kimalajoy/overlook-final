@@ -10,8 +10,12 @@ const domUpdates = {
     })
     customerList.append(customerOptions);
 
-  }
-  
+  },
+
+  listCurrentUserTotalBookingsCost (allBookingsList) {
+    let customerBookings = $('.dollas');
+    customerBookings.append(` $${allBookingsList}`);
+  },
 
 }
 

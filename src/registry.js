@@ -5,10 +5,9 @@ class Registry {
   }
 
   //dashboard methods
-  getAvailableRoomsByDate(date) {
+  getAvailableRoomCountByDate(date) {
     let bookedRooms = this.bookingsData.filter(booking => booking.date === date).length;
-    let roomsAvailable = this.roomData.length - bookedRooms;
-    return roomsAvailable;
+    return this.roomData.length - bookedRooms;
   }
 
   getTotalRevenueByDate(date) {
@@ -40,7 +39,7 @@ class Registry {
       acc += room.costPerNight;
       return acc;
     }, 0);
-    return totalUserRevenue;
+    return Math.round(totalUserRevenue);
   }
 
   //post and delete methods
