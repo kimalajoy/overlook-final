@@ -25,20 +25,20 @@ const domUpdates = {
     let customerBookings = $('.dollas');
     customerBookings.append(` $${allBookingsList}`);
   },
-
+// manager dashboard
   showNumberOfRoomsAvailableToday (numOfRooms) {
     let numberOfRooms = $('.number-rooms');
-    numberOfRooms.append(` ${numOfRooms}`)
+    numberOfRooms.empty().append(`Here are the number of rooms available for today: ${numOfRooms}`);
   },
 
   showTotalRevenue (totalMoney) {
     let todaysRevenue = $('.todays-revenue');
-    todaysRevenue.append(` $${totalMoney}`)
+    todaysRevenue.empty().append(`Total Revenue for today: $${totalMoney}`);
   },
 
   showPercentFull (percentFull) {
     let todaysRevenue = $('.percent-full');
-    todaysRevenue.append(` ${percentFull}%`)
+    todaysRevenue.empty().append(`The Snowed Inn is this full today: ${percentFull}%`);
   }
 
 }

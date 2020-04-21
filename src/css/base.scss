@@ -57,19 +57,29 @@ body {
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.6);
-
+  justify-content: space-between;
+  width: 100%;
 }
 
 .manager-dashboard, .customer-dashboard {
   flex-direction: row;
   // justify-content: flex-end;
   width: 45%;
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.30em;
 }
 
 .manager-interactions, .customer-interactions {
-  justify-content: flex-start;
-  flex-direction: row;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  // flex-direction: row;
   width: 45%;
+  margin: 20px;
+  padding: 10px;
+  font-size: 1.30em;
 }
 
 #username, #password {
@@ -98,7 +108,7 @@ button {
 
   &:active {
     transform: translateY(2px);
-    color: red;
+    color: rgb(0, 115, 255);
   }
 }
 
@@ -110,4 +120,18 @@ button {
   align-items: center;
   align-self: center;
   justify-content: center;
+  margin-left: 0px;
+  margin-top: 0px;
+  // padding: 10px 15px;
+}
+
+#customer-list, .welcome-manager, .welcome-customer {
+  margin: 5px;
+  padding: 5px;
+}
+
+.add-a-booking, .remove-a-booking, .customer-add-a-booking {
+  margin-left: 0px;
+  margin-top: 0px;
+  padding: 10px 50px;
 }

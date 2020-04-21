@@ -18,8 +18,8 @@
         </div>
       </div>
       <!-- manager view -->
-      <h2 class='hidden'>Welcome Manager</h2>
       <div class="manager-container hidden">
+        <h2 class='welcome-manager'>Welcome Manager</h2>
         <!-- manager dashboard -->
         <div class= "manager-dashboard"> 
           <section class="total-rooms"></section>
@@ -35,18 +35,24 @@
           <select name="" id="customer-list">
             <option value="">Choose customer</option>
           </select>
+          <hr>
+          <label for="CustomerBookingDate">Select a Date:</label>
           <input id="CustomerBookingDate" type="date">
+          <hr>
           <label for="room-select">Select an Available Room to Book:</label>
           <select name="" id="room-select"></select>
-          <button>Add a Booking</button>
+          <hr>
+          <button class='add-a-booking'>Add a Booking</button>
+          <hr>
           <label for="booking-delete">Select an Available Booking to Remove:</label>
           <select name="" id="booking-delete"></select>
-          <button>Remove a Booking</button>
+          <hr>
+          <button class='remove-a-booking'>Remove a Booking</button>
         </div>
       </div>
       <!-- customer view -->
       <div class="customer-container hidden">
-        <h2>Welcome Customer</h2>
+        <h2 class='welcome-customer'>Welcome Customer</h2>
         <!-- customer dashboard -->
         <div class='customer-dashboard'>
           <section class="customer-bookings"></section>
@@ -56,12 +62,17 @@
         </div>
         <!-- customer interactions -->
         <div class= 'customer-interactions'>
-          <input type="date">
+          <h3>Book a Room Below:</h3>
+          <label for="bookingDate">Select a Date:</label>
+          <input id='bookingDate' type="date">
+          <hr>
           <label for="customer-room-select">Select an Available Room to Book:</label>
         <select name="" id="customer-room-select"></select>
+        <hr>
         <label for="customer-room-available">What Kind of Room are You Looking to Book:</label>
         <select name="" id="customer-room-available"></select>
-        <button>Add a Booking</button>
+        <hr>
+        <button class='customer-add-a-booking'>Add a Booking</button>
         </div>
       </div>
     </div>

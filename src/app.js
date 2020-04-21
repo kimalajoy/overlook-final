@@ -71,11 +71,13 @@ class App {
     let managerContainer = $('.manager-container');
     let customerContainer = $('.customer-container');
     let logoutButton = $('#logoutButton');
+    let welcomeManager = $('.welcome-manager')
 
     if (this.currentUser instanceof Manager) {
       loginContainer.hide();
       managerContainer.removeClass('hidden');
       logoutButton.removeClass('hidden');
+      welcomeManager.removeClass('hidden');
     } else if (this.currentUser instanceof Customer) {
       loginContainer.hide();
       customerContainer.removeClass('hidden');
