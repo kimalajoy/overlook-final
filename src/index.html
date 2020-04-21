@@ -5,21 +5,25 @@
     <title>Snowed Inn</title>
   </head>
   <body>
-    <h1 class='greeting'>Welcome to the Snowed Inn</h1>
-    <button class='hidden' id="logoutButton">Log Out</button>
+    <div class='header'>
+      <h1 class='greeting'>Welcome to the Snowed Inn</h1>
+      <button class='hidden' id="logoutButton">Log Out</button>
+    </div>
     <div id="main">
       <!-- login page -->
       <div class="login-container">
         <h2 id="login">Login</h2>
         <div class="login-box">
-          <input type="text" id="username" placeholder="Username" />
-          <input type="password" id="password" placeholder="Password" />
-          <button id="loginButton">Send</button>
+          <label for="username">Enter Your Username</label>
+          <input tabindex="0" type="text" id="username" placeholder="Username" />
+          <label for="password">Enter Your Password</label>
+          <input tabindex="0" type="password" id="password" placeholder="Password" />
+          <button tabindex="0" id="loginButton">Log In</button>
         </div>
       </div>
       <!-- manager view -->
       <div class="manager-container hidden">
-        <h2 class='welcome-manager'>Welcome Manager</h2>
+        <!-- <h2 class='welcome-manager'>Welcome Manager</h2> -->
         <!-- manager dashboard -->
         <div class= "manager-dashboard"> 
           <section class="total-rooms"></section>
@@ -32,22 +36,23 @@
         <!-- manager interaction -->
         <div class='manager-interactions'>
           <label for="customer-list">Current Customers:</label>
-          <select name="" id="customer-list">
+          <select tabindex="0" name="" id="customer-list">
             <option value="">Choose customer</option>
           </select>
+          <h4 class="manager-view-customer-spend" >Here is how much they have spent at the Snowed Inn:</h4>
           <hr>
           <label for="CustomerBookingDate">Select a Date:</label>
-          <input id="CustomerBookingDate" type="date">
+          <input tabindex="0" id="CustomerBookingDate" type="date">
           <hr>
           <label for="room-select">Select an Available Room to Book:</label>
-          <select name="" id="room-select"></select>
+          <select tabindex="0" name="" class="room-select"></select>
           <hr>
-          <button class='add-a-booking'>Add a Booking</button>
+          <button tabindex="0" class='add-a-booking'>Add a Booking</button>
           <hr>
           <label for="booking-delete">Select an Available Booking to Remove:</label>
-          <select name="" id="booking-delete"></select>
+          <select tabindex="0" name="" id="booking-delete"></select>
           <hr>
-          <button class='remove-a-booking'>Remove a Booking</button>
+          <button tabindex="0" class='remove-a-booking'>Remove a Booking</button>
         </div>
       </div>
       <!-- customer view -->
@@ -56,7 +61,7 @@
         <!-- customer dashboard -->
         <div class='customer-dashboard'>
           <section class="customer-bookings"></section>
-          <h3>Here are Rooms you have booked with the Snowed Inn:</h3>
+          <h3 class='customer-booked'>Here are Rooms you have booked with the Snowed Inn:</h3>
           <section class="total-amount"></section>
           <h3 class='dollas'>Here is the total amount you have spent staying here:</h3>
         </div>
@@ -64,15 +69,15 @@
         <div class= 'customer-interactions'>
           <h3>Book a Room Below:</h3>
           <label for="bookingDate">Select a Date:</label>
-          <input id='bookingDate' type="date">
+          <input tabindex="0" id='bookingDate' type="date">
           <hr>
           <label for="customer-room-select">Select an Available Room to Book:</label>
-        <select name="" id="customer-room-select"></select>
+        <select tabindex="0" name="" class="room-select"></select>
         <hr>
         <label for="customer-room-available">What Kind of Room are You Looking to Book:</label>
-        <select name="" id="customer-room-available"></select>
+        <select tabindex="0" name="" id="customer-room-available"></select>
         <hr>
-        <button class='customer-add-a-booking'>Add a Booking</button>
+        <button tabindex="0" class='customer-add-a-booking'>Add a Booking</button>
         </div>
       </div>
     </div>

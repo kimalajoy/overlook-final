@@ -21,14 +21,22 @@ body {
   justify-content: center;
 }
 
-.greeting {
+.header {
   @include standard-flex(row);
-  align-content: center;
-  justify-content: center;
+  // align-content: center;
+  justify-content: space-between;
+  // justify-content: center;
+}
+
+.greeting {
+  align-self: flex-start;
+  color: white;
+  text-shadow: -5px 4px black;
 }
 
 #login {
   font-size: 1.75em;
+
 }
 
 .login-container {
@@ -93,7 +101,6 @@ body {
   letter-spacing: 2px;
 }
 
-
 button {
   padding: 20px 30px;
   margin-top: 30px;
@@ -105,6 +112,8 @@ button {
   letter-spacing: 5px;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: -5px 4px black;
+  
 
   &:active {
     transform: translateY(2px);
@@ -118,7 +127,7 @@ button {
 
 #logoutButton {
   align-items: center;
-  align-self: center;
+  align-self: flex-end;
   justify-content: center;
   margin-left: 0px;
   margin-top: 0px;

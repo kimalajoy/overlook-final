@@ -41,7 +41,7 @@ class App {
         return;
       }
 
-      this.currentUser = new Customer(username);
+      this.currentUser = new Customer(username, userId);
       this.loadUserView();
       this.loadCustomerDashboard();
     }
@@ -113,6 +113,8 @@ class App {
     $('#customer-list').on('change', this.managerSelectCustomer.bind(this));
 
     $('#CustomerBookingDate').on('change', this.managerSelectCustomerBookingDate.bind(this));
+
+    $('#bookingDate').on('change', this.managerSelectCustomerBookingDate.bind(this));
  
     let numOfRooms = this.registry.getAvailableRoomCountByDate(date);
     domUpdates.showNumberOfRoomsAvailableToday(numOfRooms);
@@ -124,7 +126,6 @@ class App {
     domUpdates.showPercentFull(percentFull);
 
   }
-
   managerSelectCustomer(e) {
     let userId = $(e.target).val();
     this.registry.listOfBookingsByUser(userId);
@@ -136,19 +137,27 @@ class App {
     let date = $(e.target).val().replace(/-/g, '/');
     console.log(date)
     //show rooms available by date
-    this.managerBookRoomForCustomer(date);
+    // this.managerBookRoomForCustomer(date);
     let availableRooms = this.registry.getAvailableRoomsByDate(date);
     console.log(availableRooms);
     domUpdates.makeAvailableRoomsList(availableRooms);
   }
 
   managerBookRoomForCustomer(roomNumber, date, userId) {
-    //let bookingPromise = this.registry.bookRoomByRoomNumber(roomNumber, date, userId);
+    // let bookingPromise = this.registry.bookRoomByRoomNumber(roomNumber, date, userId);
   }
 
   loadCustomerDashboard () {
-    // this.registry.listOfBookingsByUser(userId);
-    // this.registry.getTotalBookingsCostByUser(userId);
+    let customerTotalBooked = this.registry.listOfBookingsByUser(this.currentUser.userId);
+    domUpdates.showRoomsCustomerHasBooked(customerTotalBooked);
+
+  console.log(this.currentUser.userId)
+    let customerTotalSpent = this.registry.getTotalBookingsCostByUser(43);
+    domUpdates.showTotalCustomerSpent(customerTotalSpent);
+
+  // domUpdates.makeAvailableRoomsList(availableRooms);
+    
+
     // let bookingPromise = this.registry.bookRoomByRoomNumber(roomNumber, date, userId);
 
     // let allBookingsList = this.registry.getTotalBookingsCostByUser(userId);

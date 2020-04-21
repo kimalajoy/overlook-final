@@ -12,8 +12,9 @@ const domUpdates = {
   },
 
   makeAvailableRoomsList(availableRoomsList) {
-    let availableRoomSelect = $('#room-select');
+    let availableRoomSelect = $('.room-select');
     availableRoomSelect.empty();
+
     let roomOptions = '<option value="">Choose room</option>';
     availableRoomsList.forEach(room => {
       roomOptions = roomOptions.concat((`<option value="${room.number}">${room.number} ${room.roomType} (${room.bedSize})</option>`));
@@ -21,10 +22,7 @@ const domUpdates = {
     availableRoomSelect.append(roomOptions);
   },
 
-  listCurrentUserTotalBookingsCost (allBookingsList) {
-    let customerBookings = $('.dollas');
-    customerBookings.append(` $${allBookingsList}`);
-  },
+ 
 // manager dashboard
   showNumberOfRoomsAvailableToday (numOfRooms) {
     let numberOfRooms = $('.number-rooms');
@@ -39,7 +37,26 @@ const domUpdates = {
   showPercentFull (percentFull) {
     let todaysRevenue = $('.percent-full');
     todaysRevenue.empty().append(`The Snowed Inn is this full today: ${percentFull}%`);
+  },
+
+  showUserTotalSpent() {
+
+  },
+
+  //customer dashboard
+  showRoomsCustomerHasBooked (customerTotalBooked) {
+    let bookingsByCustomer = $('.customer-booked');
+    bookingsByCustomer.empty().append(`Here are Rooms you have booked with the Snowed Inn:`);
+    customerTotalBooked.forEach(room => {
+      bookingsByCustomer.append(` ${room.roomNumber}, `);
+    });
+  },
+
+  showTotalCustomerSpent (customerTotalSpent) {
+    let customerSpending = $('.dollas');
+    customerSpending.empty().append(`Here is the total amount you have spent staying here: $${customerTotalSpent} `)
   }
+
 
 }
 
