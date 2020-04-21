@@ -120,10 +120,14 @@ class App {
     //show rooms available
   }
 
-  managerSelectCustomerBookingDate(e){
-    let date = $(e.target).val();
+  managerSelectCustomerBookingDate(e) {
+    let date = $(e.target).val().replace(/-/g, '/');
     console.log(date)
     //show rooms available by date
+    this.managerBookRoomForCustomer(date);
+    let availableRooms = this.registry.getAvailableRoomsByDate(date);
+    console.log(availableRooms);
+    domUpdates.makeAvailableRoomsList(availableRooms);
   }
 
   managerBookRoomForCustomer(roomNumber, date, userId) {

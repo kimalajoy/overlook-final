@@ -10,6 +10,27 @@ class Registry {
     return this.roomData.length - bookedRooms;
   }
 
+  getAvailableRoomsByDate(date) {
+    let bookedRoomNumbers = this.bookingsData.reduce((acc, booking) => {
+      if (booking.date === date) {
+        acc.push(booking.roomNumber);
+      }
+
+      return acc;
+    }, []);
+console.log('bookedRoomNumbers', bookedRoomNumbers)
+    let availableRooms = this.roomData.reduce((acc, room) => {
+      if (!bookedRoomNumbers.includes(room.number)) {
+        acc.push(room);
+      }
+
+      return acc;
+    }, []);
+
+
+    return availableRooms;
+  }
+
   getTotalRevenueByDate(date) {
     let bookedRooms = this.bookingsData.filter(booking => booking.date === date);
     let totalRevenue = bookedRooms.reduce((acc, bookedRoom) => {
