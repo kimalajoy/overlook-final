@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <title>Snowed Inn</title>
   </head>
@@ -41,8 +42,8 @@
           </select>
           <h4 class="manager-view-customer-spend" >Here is how much they have spent at the Snowed Inn:</h4>
           <hr>
-          <label for="CustomerBookingDate">Select a Date:</label>
-          <input tabindex="0" id="CustomerBookingDate" type="date">
+          <label for="bookingDate">Select a Date:</label>
+          <input tabindex="0" class="bookingDate" type="date">
           <hr>
           <label for="room-select">Select an Available Room to Book:</label>
           <select tabindex="0" name="" class="room-select"></select>
@@ -70,7 +71,7 @@
         <div class= 'customer-interactions'>
           <h3>Book a Room Below:</h3>
           <label for="bookingDate">Select a Date:</label>
-          <input tabindex="0" id='bookingDate' type="date">
+          <input tabindex="0" class='bookingDate' type="date">
           <hr>
           <label for="customer-room-select">Select an Available Room to Book:</label>
         <select tabindex="0" name="" class="room-select"></select>

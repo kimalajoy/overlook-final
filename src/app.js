@@ -33,7 +33,7 @@ class App {
     if (username === 'manager' && password === 'overlook2020') {
       this.currentUser = new Manager();
       this.loadUserView();
-      this.loadManagerDashboard ();
+      this.loadManagerDashboard();
     } else if (username.includes('customer') && password === 'overlook2020') {
       let userId = Number(username.replace('customer', ''));
 
@@ -41,7 +41,7 @@ class App {
         return;
       }
 
-      this.currentUser = new Customer(username, userId);
+      this.currentUser = new Customer(this.user.userData, userId);
       this.loadUserView();
       this.loadCustomerDashboard();
     }
@@ -72,6 +72,7 @@ class App {
     let logoutButton = $('#logoutButton');
     let welcomeManager = $('.welcome-manager');
     let welcomeCustomer = $('.customer-greeting');
+    $('.bookingDate').on('change', this.selectCustomerBookingDate.bind(this));
 
     if (this.currentUser instanceof Manager) {
       loginContainer.hide();
@@ -82,8 +83,8 @@ class App {
       loginContainer.hide();
       customerContainer.removeClass('hidden');
       logoutButton.removeClass('hidden');
-      console.log(this.userName)
-      welcomeCustomer.text(`Welcome to the Snowed Inn ${this.currentUser.name}`);
+      console.log(this.currentUser)
+      welcomeCustomer.text(`${this.currentUser.user.name}`);
     } else {
       loginContainer.show();
       managerContainer.addClass('hidden');
@@ -113,10 +114,6 @@ class App {
     domUpdates.makeCustomerList(allCustomerList);
 
     $('#customer-list').on('change', this.managerSelectCustomer.bind(this));
-
-    $('#CustomerBookingDate').on('change', this.managerSelectCustomerBookingDate.bind(this));
-
-    $('#bookingDate').on('change', this.managerSelectCustomerBookingDate.bind(this));
  
     let numOfRooms = this.registry.getAvailableRoomCountByDate(date);
     domUpdates.showNumberOfRoomsAvailableToday(numOfRooms);
@@ -135,7 +132,7 @@ class App {
     //show rooms available
   }
 
-  managerSelectCustomerBookingDate(e) {
+  selectCustomerBookingDate(e) {
     let date = $(e.target).val().replace(/-/g, '/');
     //show rooms available by date
     // this.managerBookRoomForCustomer(date);
