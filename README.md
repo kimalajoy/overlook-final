@@ -1,11 +1,11 @@
-# Snowed Inn
+# ❄️Snowed Inn
 ### Overlook Hotel Final
 
 ## Team Members:
 [Kimala Cochran](https://github.com/kimalajoy)
 
 ## Abstract
-This is our final project for mod 2 during our time at [Turing School of Software and Design](https://turing.io/). I created a hotel website which has both a customer login along with a manager/admin log in. Once logged in the customer can view all the rooms they have preivously booked, how much money they have spent at the Snowed Inn in the past and will allow them to make a new booking for a future stay! The manager can view the total revenue generated for the hotel for the current day, along with how many rooms have been booked. They also have access to their customer's previous booking information and can make a new booking or detele a previously submitted booking for the selected customer.
+This is the final project for mod 2 during my time at [Turing School of Software and Design](https://turing.io/). I created a hotel website which has both a customer login and a manager/admin log in. Once logged in the customer can view all the rooms they have preivously booked, how much money they have spent at the Snowed Inn in the past and will allow them to make a new booking for a future stay! The manager can view the total revenue generated for the hotel for the current day, along with how many rooms have been booked. They also have access to their customer's previous booking information and can make a new booking or detele a previously submitted booking for the selected customer.
 
 ## Setup
 1. Fork and clone down this repo.
@@ -22,7 +22,7 @@ This is our final project for mod 2 during our time at [Turing School of Softwar
       Username: customer50 (where 50 is the ID of the user - you can choose customer number 1-50 to view)
       Password: overlook2020
       
-2. As a manager you can select which user you would like to review from the pulldown on the right and a history of their booking information can be viewed on the left. On the right you can choose a date and a room before clicking to book a room for that user, or you can choose from the list of upcoming stays to delete a stay. On the left there is also current information about the hotel including the revenue generated, how full the hotel is and how many rooms are still available for the current day.
+2. As a manager you can select which user you would like to review from the pulldown on the right and a history of their booking information can then be viewed on the left. On the right you can choose a date and an available room before clicking to book a room for that user, or you can choose from the list of upcoming stays to delete a stay. On the left there is also current information about the hotel including the revenue generated, how full the hotel is and how many rooms are still available for the current day.
 
 3. As a customer you can view your previously booked rooms and how much you have spent at the hotel on the left, on the right side you can select a day and an available room to make an upcoming booking request.
 
