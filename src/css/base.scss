@@ -13,6 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   max-width: 100%;
+  overflow-y: hidden;
 }
 
 #main {
@@ -89,6 +90,8 @@ body {
   margin: 20px;
   padding: 10px;
   font-size: 1.30em;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #username, #password {
@@ -128,7 +131,7 @@ button {
 
 #logoutButton {
   align-items: center;
-  align-self: flex-end;
+  align-self: center;
   justify-content: center;
   margin-left: 0px;
   margin-top: 0px;
@@ -144,4 +147,9 @@ button {
   margin-left: 0px;
   margin-top: 0px;
   padding: 10px 50px;
+}
+
+.manager-view-customer-spend, .manager-view-customer-book {
+  margin: 1px;
+  padding: 2px;
 }

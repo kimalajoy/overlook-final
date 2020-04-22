@@ -51,6 +51,7 @@ class Registry {
   }
 
   getTotalBookingsCostByUser(userId) {
+    
     let userBookings = this.bookingsData.filter(booking => booking.userID === userId);
     let totalUserRevenue = userBookings.reduce((acc, bookedRoom) => {
       let room = this.roomData.find(suite => suite.number === bookedRoom.roomNumber)

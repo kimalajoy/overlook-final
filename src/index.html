@@ -36,11 +36,17 @@
         </div>
         <!-- manager interaction -->
         <div class='manager-interactions'>
-          <label for="customer-list">Current Customers:</label>
+          <label for="customer-list">Choose a Current Customer:</label>
           <select tabindex="0" name="" id="customer-list">
             <option value="">Choose customer</option>
           </select>
-          <h4 class="manager-view-customer-spend" >Here is how much they have spent at the Snowed Inn:</h4>
+          <h5 class="dollas" >Here is how much they have spent:</h5>
+
+          <label>Here Are The Rooms They've Previously Booked:
+            <select tabindex="0" name="" class="customer-booked">
+              <option value="">Previously Booked Rooms</option>
+            </select>
+          </label>
           <hr>
           <label for="bookingDate">Select a Date:</label>
           <input tabindex="0" class="bookingDate" type="date">
@@ -63,7 +69,12 @@
         <div class='customer-dashboard'>
           <h2 class='customer-greeting'></h2>
           <section class="customer-bookings"></section>
-          <h3 class='customer-booked'>Here are Rooms you have booked with the Snowed Inn:</h3>
+
+          <label for="customer-booked">Here Are The Rooms They've Previously Booked:
+            <select tabindex="0" name="" class="customer-booked">
+              <option value="">Previously Booked Rooms</option>
+            </select>
+          </label>
           <section class="total-amount"></section>
           <h3 class='dollas'>Here is the total amount you have spent staying here:</h3>
         </div>

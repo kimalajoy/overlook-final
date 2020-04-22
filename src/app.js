@@ -83,7 +83,6 @@ class App {
       loginContainer.hide();
       customerContainer.removeClass('hidden');
       logoutButton.removeClass('hidden');
-      console.log(this.currentUser)
       welcomeCustomer.text(`${this.currentUser.user.name}`);
     } else {
       loginContainer.show();
@@ -123,13 +122,14 @@ class App {
 
     let percentFull = this.registry.getPercentOccupiedByDate(date);
     domUpdates.showPercentFull(percentFull);
-
   }
   managerSelectCustomer(e) {
-    let userId = $(e.target).val();
-    this.registry.listOfBookingsByUser(userId);
-    this.registry.getTotalBookingsCostByUser(userId);
-    //show rooms available
+    let userId = Number($(e.target).val());
+    let customerBookings = this.registry.listOfBookingsByUser(userId);
+    let customerTotalSpent = this.registry.getTotalBookingsCostByUser(userId);
+    domUpdates.showTotalCustomerSpent(customerTotalSpent);
+    //show rooms a selected customer has booked
+    domUpdates.showRoomsCustomerHasBooked(customerBookings);
   }
 
   selectCustomerBookingDate(e) {
@@ -148,9 +148,10 @@ class App {
     let customerTotalBooked = this.registry.listOfBookingsByUser(this.currentUser.userId);
     domUpdates.showRoomsCustomerHasBooked(customerTotalBooked);
 
-  console.log(this.currentUser.userId)
-    let customerTotalSpent = this.registry.getTotalBookingsCostByUser(43);
+    let customerTotalSpent = this.registry.getTotalBookingsCostByUser(this.currentUser.userId);
     domUpdates.showTotalCustomerSpent(customerTotalSpent);
+
+
 
   // domUpdates.makeAvailableRoomsList(availableRooms);
     
