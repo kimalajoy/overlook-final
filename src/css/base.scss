@@ -25,9 +25,7 @@ body {
 
 .header {
   @include standard-flex(row);
-  // align-content: center;
   justify-content: space-between;
-  // justify-content: center;
 }
 
 .greeting {
@@ -38,7 +36,6 @@ body {
 
 #login {
   font-size: 1.75em;
-
 }
 
 .login-container {
@@ -74,7 +71,6 @@ body {
 
 .manager-dashboard, .customer-dashboard {
   flex-direction: row;
-  // justify-content: flex-end;
   width: 45%;
   margin: 10px;
   padding: 10px;
@@ -86,7 +82,6 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  // flex-direction: row;
   width: 45%;
   margin: 20px;
   padding: 10px;
@@ -94,7 +89,6 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
   overflow-y: scroll;
-
 }
 
 #username, #password {
@@ -120,12 +114,16 @@ button {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: -5px 4px black;
-  
 
   &:active {
     transform: translateY(2px);
     color: rgb(0, 115, 255);
   }
+}
+
+#manager-add-booking, #delete-a-booking {
+  margin-top: 0px;
+  margin-left: 0px;
 }
 
 .hidden {
@@ -138,7 +136,6 @@ button {
   justify-content: center;
   margin-left: 0px;
   margin-top: 0px;
-  // padding: 10px 15px;
 }
 
 #customer-list, .welcome-manager, .welcome-customer {

@@ -28,7 +28,7 @@ const domUpdates = {
 
   showTotalRevenue (totalMoney) {
     let todaysRevenue = $('.todays-revenue');
-    todaysRevenue.empty().append(`Total Revenue for today: $${totalMoney}`);
+    todaysRevenue.empty().append(`Total Revenue for today: $${Math.round(totalMoney)}`);
   },
 
   showPercentFull (percentFull) {

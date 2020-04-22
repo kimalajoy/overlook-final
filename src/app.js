@@ -143,7 +143,14 @@ class App {
     this.selectedBookingDate = $(e.target).val().replace(/-/g, '/');
     
     //show rooms available by date
+    
     let availableRooms = this.registry.getAvailableRoomsByDate(this.selectedBookingDate);
+
+    if(!availableRooms) {
+      alert('No Rooms Available for the date selected, please choose a different day.')
+    }
+
+  
     domUpdates.makeAvailableRoomsList(availableRooms);
   }
 
