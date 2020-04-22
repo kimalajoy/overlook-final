@@ -50,11 +50,11 @@
             <option value="">Choose customer</option>
           </select>
           <hr>
-          <label for="bookingDate">Select a Date:</label>
-          <input tabindex="0" class="bookingDate" type="date">
+          <label for="manager-bookingDate">Select a Date:</label>
+          <input id='manager-bookingDate' tabindex="0" class="bookingDate" type="date">
           <hr>
-          <label for="room-select">Select an Available Room to Book:</label>
-          <select tabindex="0" name="" class="room-select"></select>
+          <label for="manager-room-select">Select an Available Room to Book:</label>
+          <select id='manager-room-select' tabindex="0" name="" class="room-select"></select>
           <hr>
           <button tabindex="0" id='manager-add-booking'>Add a Booking</button>
           <hr>
@@ -70,8 +70,8 @@
           <h2 class='customer-greeting'></h2>
           <section class="customer-bookings"></section>
 
-          <label for="customer-booked">Here Are The Rooms Previously Booked:
-            <select tabindex="0" name="" class="customer-booked">
+          <label for="customer-view-booked">Here Are The Rooms Previously Booked:
+            <select id='customer-view-booked' tabindex="0" name="" class="customer-booked">
               <option value="">Previously Booked Rooms</option>
             </select>
           </label>
@@ -81,11 +81,11 @@
         <!-- customer interactions -->
         <div class= 'customer-interactions'>
           <h3>Book a Room Below:</h3>
-          <label for="bookingDate">Select a Date:</label>
-          <input tabindex="0" class='bookingDate' type="date">
+          <label for="customer-bookingDate">Select a Date:</label>
+          <input id='customer-bookingDate' tabindex="0" class='bookingDate' type="date">
           <hr>
           <label for="customer-room-select">Select an Available Room to Book:</label>
-        <select tabindex="0" name="" class="room-select"></select>
+        <select id='customer-room-select' tabindex="0" name="" class="room-select"></select>
         <hr>
         <label for="customer-room-available">What Kind of Room are You Looking to Book:</label>
         <select tabindex="0" name="" id="customer-room-available"></select>
