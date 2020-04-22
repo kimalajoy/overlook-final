@@ -15,15 +15,12 @@ class Registry {
       if (booking.date === date) {
         acc.push(booking.roomNumber);
       }
-
       return acc;
     }, []);
-    console.log('bookedRoomNumbers', bookedRoomNumbers)
     let availableRooms = this.roomData.reduce((acc, room) => {
       if (!bookedRoomNumbers.includes(room.number)) {
         acc.push(room);
       }
-
       return acc;
     }, []);
 

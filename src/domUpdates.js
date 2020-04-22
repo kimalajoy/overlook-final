@@ -40,7 +40,7 @@ const domUpdates = {
   },
 
   showUserTotalSpent() {
-
+    let customerSpending = $('.manager-view-customer-spend');
   },
 
   //customer dashboard

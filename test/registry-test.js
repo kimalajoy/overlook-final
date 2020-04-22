@@ -63,4 +63,46 @@ describe('Registry', () => {
     });
   });
 
+  describe('getAvailableRoomsByDate', () => {
+
+    it('should provide a list of available rooms after a date is selected', () => {
+
+      expect(registry.getAvailableRoomsByDate('2020/01/10')).to.deep.equal([
+        {
+          number: 1,
+          roomType: 'residential suite',
+          bidet: true,
+          bedSize: 'queen',
+          numBeds: 1,
+          costPerNight: 358.4
+        },
+        {
+          number: 3,
+          roomType: 'single room',
+          bidet: false,
+          bedSize: 'king',
+          numBeds: 1,
+          costPerNight: 491.14
+        },
+        {
+          number: 4,
+          roomType: 'single room',
+          bidet: false,
+          bedSize: 'queen',
+          numBeds: 1,
+          costPerNight: 429.44
+        },
+        {
+          number: 5,
+          roomType: 'single room',
+          bidet: true,
+          bedSize: 'queen',
+          numBeds: 2,
+          costPerNight: 340.17
+        }
+      ])
+    })
+
+  })
+
 })

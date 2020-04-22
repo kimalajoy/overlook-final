@@ -62,7 +62,6 @@ class App {
   logout() {
     this.currentUser = null;
     this.loadUserView();
-    console.log('logout!');
   }
 
   // Hide/unhide section of page as necessary
@@ -71,7 +70,8 @@ class App {
     let managerContainer = $('.manager-container');
     let customerContainer = $('.customer-container');
     let logoutButton = $('#logoutButton');
-    let welcomeManager = $('.welcome-manager')
+    let welcomeManager = $('.welcome-manager');
+    let welcomeCustomer = $('.customer-greeting');
 
     if (this.currentUser instanceof Manager) {
       loginContainer.hide();
@@ -82,6 +82,8 @@ class App {
       loginContainer.hide();
       customerContainer.removeClass('hidden');
       logoutButton.removeClass('hidden');
+      console.log(this.userName)
+      welcomeCustomer.text(`Welcome to the Snowed Inn ${this.currentUser.name}`);
     } else {
       loginContainer.show();
       managerContainer.addClass('hidden');
@@ -135,11 +137,9 @@ class App {
 
   managerSelectCustomerBookingDate(e) {
     let date = $(e.target).val().replace(/-/g, '/');
-    console.log(date)
     //show rooms available by date
     // this.managerBookRoomForCustomer(date);
     let availableRooms = this.registry.getAvailableRoomsByDate(date);
-    console.log(availableRooms);
     domUpdates.makeAvailableRoomsList(availableRooms);
   }
 

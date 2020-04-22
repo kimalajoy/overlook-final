@@ -1,15 +1,14 @@
 import { expect } from 'chai';
 import App from '../src/app.js';
-import $ from 'jquery';
 
 
 // describe('App', () => {
 //   let app;
 //   let user;
-//   let bookings;
+//   let registry;
 
 //   beforeEach(() => {
-//     app = new App(user, bookings);
+//     app = new App(user, registry);
 //   });
 
 //   it('should be a function', () => {
