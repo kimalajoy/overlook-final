@@ -1,4 +1,4 @@
-# ❄️Snowed Inn
+# ❄️ Snowed Inn
 ### Overlook Hotel Final
 
 ## Team Members:
