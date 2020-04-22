@@ -103,7 +103,6 @@ class Registry {
 
     return response;
   }
-
 }
 
 

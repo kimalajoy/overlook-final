@@ -146,7 +146,7 @@ class App {
     
     let availableRooms = this.registry.getAvailableRoomsByDate(this.selectedBookingDate);
 
-    if(!availableRooms) {
+    if (!availableRooms) {
       alert('No Rooms Available for the date selected, please choose a different day.')
     }
 
