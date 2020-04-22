@@ -29,7 +29,6 @@ function fetchData() {
       dataObj.userData = response[0].users;
       dataObj.roomData = response[1].rooms;
       dataObj.bookingsData = response[2].bookings;
-      console.log(dataObj);
       return dataObj;
     });
 }

@@ -11,6 +11,7 @@ class App {
     this.selectedUserId = 0;
     this.selectedBookingDate = null;
     this.selectedRoomNumber = 0;
+    this.selectedBookingId = null;
 
     this.initialize();
   }
@@ -24,19 +25,22 @@ class App {
     $('#customer-add-booking').on('click', this.customerBookRoom.bind(this));
     $('#manager-add-booking').on('click', this.managerBookRoom.bind(this));
     $('.room-select').on('change', this.selectRoomNumber.bind(this));
+    $('.customer-booked').on('change', this.selectBooking.bind(this));
+    $('#delete-a-booking').on('click', this.deleteRoomBookingForCustomer.bind(this));
   }
 
   selectRoomNumber(e) {
     this.selectedRoomNumber = Number($(e.target).val());
   }
 
+  selectBooking(e) {
+    this.selectedBookingId = $(e.target).val();
+  }
+
   login() {
     this.currentUser = null;
     let username = this.usernameInput.val();
     let password = this.passwordInput.val();
-
-    //todo: remove this
-    password = 'overlook2020'
 
     if (username === 'manager' && password === 'overlook2020') {
       this.currentUser = new Manager();
@@ -112,9 +116,6 @@ class App {
     this.registry.getAvailableRoomCountByDate(date);
     this.registry.getTotalRevenueByDate(date);
 
-    // // console.log('bookingResponse', bookingPromise);
-    // let deletePromise = this.registry.deleteBookingRequest(id);
-    // console.log('deletePromise', deletePromise)
     let allCustomerList = this.user.listAllCustomers();
     domUpdates.makeCustomerList(allCustomerList);
 
@@ -140,6 +141,7 @@ class App {
 
   selectCustomerBookingDate(e) {
     this.selectedBookingDate = $(e.target).val().replace(/-/g, '/');
+    
     //show rooms available by date
     let availableRooms = this.registry.getAvailableRoomsByDate(this.selectedBookingDate);
     domUpdates.makeAvailableRoomsList(availableRooms);
@@ -180,10 +182,24 @@ class App {
     }
 
     this.registry.bookRoomByRoomNumber(roomNumber, date, userId).then(function(response) {
-      console.log(response);
       alert(`Successfully booked room ${response.roomNumber} on ${response.date}! (${response.id})`);
     }).catch(function() {
       alert(`Failed booking room ${roomNumber} on ${date}.`);
+    });
+  }
+
+  deleteRoomBookingForCustomer() {
+    let booking = this.registry.getBookingById(this.selectedBookingId);
+
+    if (new Date(booking.date) < new Date()) {
+      alert('You may only remove future bookings.');
+      return;
+    }
+
+    this.registry.deleteBookingRequest(this.selectedBookingId).then(function(response) {
+      alert(response.message);
+    }).catch(function(response) {
+      alert(response.message);
     });
   }
 
@@ -193,11 +209,6 @@ class App {
 
     let customerTotalSpent = this.registry.getTotalBookingsCostByUser(this.currentUser.userId);
     domUpdates.showTotalCustomerSpent(customerTotalSpent);
-
-    // let bookingPromise = this.registry.bookRoomByRoomNumber(roomNumber, date, userId);
-
-    // let allBookingsList = this.registry.getTotalBookingsCostByUser(userId);
-    // domUpdates.listCurrentUserTotalBookingsCost(allBookingsList);
   }
 }
 

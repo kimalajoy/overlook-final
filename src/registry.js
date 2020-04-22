@@ -4,6 +4,11 @@ class Registry {
     this.roomData = roomData;
   }
 
+  getBookingById(bookingId) {
+    // API has some string and some numeric IDs so can not use triple equals to compare
+    return this.bookingsData.find(booking => booking.id == bookingId);
+  }
+
   //dashboard methods
   getAvailableRoomCountByDate(date) {
     let bookedRooms = this.bookingsData.filter(booking => booking.date === date).length;
@@ -96,7 +101,6 @@ class Registry {
     };
     let response = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', options).then(response => response.json());
 
-    console.log(response);
     return response;
   }
 
