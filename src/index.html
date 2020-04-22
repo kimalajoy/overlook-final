@@ -42,7 +42,7 @@
           </select>
           <h5 class="dollas" >Here is how much they have spent:</h5>
 
-          <label>Here Are The Rooms They've Previously Booked:
+          <label>Here Are The Rooms Previously Booked:
             <select tabindex="0" name="" class="customer-booked">
               <option value="">Previously Booked Rooms</option>
             </select>
@@ -54,12 +54,12 @@
           <label for="room-select">Select an Available Room to Book:</label>
           <select tabindex="0" name="" class="room-select"></select>
           <hr>
-          <button tabindex="0" class='add-a-booking'>Add a Booking</button>
+          <button tabindex="0" id='manager-add-booking'>Add a Booking</button>
           <hr>
           <label for="booking-delete">Select an Available Booking to Remove:</label>
           <select tabindex="0" name="" id="booking-delete"></select>
           <hr>
-          <button tabindex="0" class='remove-a-booking'>Remove a Booking</button>
+          <button tabindex="0" id='delete-a-booking'>Remove a Booking</button>
         </div>
       </div>
       <!-- customer view -->
@@ -70,7 +70,7 @@
           <h2 class='customer-greeting'></h2>
           <section class="customer-bookings"></section>
 
-          <label for="customer-booked">Here Are The Rooms They've Previously Booked:
+          <label for="customer-booked">Here Are The Rooms Previously Booked:
             <select tabindex="0" name="" class="customer-booked">
               <option value="">Previously Booked Rooms</option>
             </select>
@@ -90,7 +90,7 @@
         <label for="customer-room-available">What Kind of Room are You Looking to Book:</label>
         <select tabindex="0" name="" id="customer-room-available"></select>
         <hr>
-        <button tabindex="0" class='customer-add-a-booking'>Add a Booking</button>
+        <button tabindex="0" id='customer-add-booking'>Add a Booking</button>
         </div>
       </div>
     </div>

@@ -8,18 +8,26 @@ class App {
     this.user = user;
     this.registry = registry;
     this.currentUser = null;
+    this.selectedUserId = 0;
+    this.selectedBookingDate = null;
+    this.selectedRoomNumber = 0;
 
     this.initialize();
   }
 
   initialize() {
-    this.loginButton = $('#loginButton');
     this.usernameInput = $('#username');
     this.passwordInput = $('#password');
-    this.logoutButton = $('#logoutButton');
 
-    this.loginButton.on('click', this.login.bind(this));
-    this.logoutButton.on('click', this.logout.bind(this));
+    $('#loginButton').on('click', this.login.bind(this));
+    $('#logoutButton').on('click', this.logout.bind(this));
+    $('#customer-add-booking').on('click', this.customerBookRoom.bind(this));
+    $('#manager-add-booking').on('click', this.managerBookRoom.bind(this));
+    $('.room-select').on('change', this.selectRoomNumber.bind(this));
+  }
+
+  selectRoomNumber(e) {
+    this.selectedRoomNumber = Number($(e.target).val());
   }
 
   login() {
@@ -42,6 +50,7 @@ class App {
       }
 
       this.currentUser = new Customer(this.user.userData, userId);
+      this.selectedUserId = userId;
       this.loadUserView();
       this.loadCustomerDashboard();
     }
@@ -124,24 +133,61 @@ class App {
     domUpdates.showPercentFull(percentFull);
   }
   managerSelectCustomer(e) {
-    let userId = Number($(e.target).val());
-    let customerBookings = this.registry.listOfBookingsByUser(userId);
-    let customerTotalSpent = this.registry.getTotalBookingsCostByUser(userId);
+    this.selectedUserId = Number($(e.target).val());
+    let customerBookings = this.registry.listOfBookingsByUser(this.selectedUserId);
+    let customerTotalSpent = this.registry.getTotalBookingsCostByUser(this.selectedUserId);
     domUpdates.showTotalCustomerSpent(customerTotalSpent);
     //show rooms a selected customer has booked
     domUpdates.showRoomsCustomerHasBooked(customerBookings);
   }
 
   selectCustomerBookingDate(e) {
-    let date = $(e.target).val().replace(/-/g, '/');
+    this.selectedBookingDate = $(e.target).val().replace(/-/g, '/');
     //show rooms available by date
-    // this.managerBookRoomForCustomer(date);
-    let availableRooms = this.registry.getAvailableRoomsByDate(date);
+    let availableRooms = this.registry.getAvailableRoomsByDate(this.selectedBookingDate);
     domUpdates.makeAvailableRoomsList(availableRooms);
   }
 
-  managerBookRoomForCustomer(roomNumber, date, userId) {
-    // let bookingPromise = this.registry.bookRoomByRoomNumber(roomNumber, date, userId);
+  managerBookRoom() {
+    let roomNumber = Number($('.room-select').val());
+    let date = this.selectedBookingDate;
+    let userId = this.selectedUserId;
+    console.log(`[M] roomNumber: ${roomNumber}, date: ${date}, userId: ${userId}`)
+
+    this.bookRoomForCustomer(roomNumber, date, userId);
+  }
+
+  customerBookRoom() {
+    let roomNumber = this.selectedRoomNumber;
+    let date = this.selectedBookingDate;
+    let userId = this.selectedUserId;
+    console.log(`[C] roomNumber: ${roomNumber}, date: ${date}, userId: ${userId}`)
+
+    this.bookRoomForCustomer(roomNumber, date, userId);
+  }
+  
+  bookRoomForCustomer(roomNumber, date, userId) {
+    if (!userId) {
+      alert('You must select a customer to book a room.');
+      return;
+    }
+
+    if (!date) {
+      alert('You must select a date to book a room.');
+      return;
+    }
+
+    if (!roomNumber) {
+      alert('You must select a room number to book a room.');
+      return;
+    }
+
+    this.registry.bookRoomByRoomNumber(roomNumber, date, userId).then(function(response) {
+      console.log(response);
+      alert(`Successfully booked room ${response.roomNumber} on ${response.date}! (${response.id})`);
+    }).catch(function() {
+      alert(`Failed booking room ${roomNumber} on ${date}.`);
+    });
   }
 
   loadCustomerDashboard () {
@@ -150,11 +196,6 @@ class App {
 
     let customerTotalSpent = this.registry.getTotalBookingsCostByUser(this.currentUser.userId);
     domUpdates.showTotalCustomerSpent(customerTotalSpent);
-
-
-
-  // domUpdates.makeAvailableRoomsList(availableRooms);
-    
 
     // let bookingPromise = this.registry.bookRoomByRoomNumber(roomNumber, date, userId);
 
