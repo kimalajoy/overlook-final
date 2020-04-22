@@ -28,18 +28,14 @@
         <!-- manager dashboard -->
         <div class= "manager-dashboard"> 
           <section class="total-rooms"></section>
-          <h3 class='number-rooms'>Here are the number of rooms available for today:</h3>
+          <h3>Today's Totals:</h3>
+          <h4 class='number-rooms'>Total rooms available:</h4>
           <section class="total-revenue"></section>
-          <h3 class='todays-revenue'>Total Revenue for today:</h3>
+          <h4 class='todays-revenue'>Revenue:</h4>
           <section class="percent-rooms"></section>
-          <h3 class='percent-full'>The Snowed Inn is this full today:</h3>
-        </div>
-        <!-- manager interaction -->
-        <div class='manager-interactions'>
-          <label for="customer-list">Choose a Current Customer:</label>
-          <select tabindex="0" name="" id="customer-list">
-            <option value="">Choose customer</option>
-          </select>
+          <h4 class='percent-full'>The Snowed Inn is this full today:</h4>
+          <hr>
+          <h4>Selected Customer's Previous Spending and Room Information</h4>
           <h5 class="dollas" >Here is how much they have spent:</h5>
 
           <label>Here Are The Rooms Previously Booked:
@@ -47,6 +43,13 @@
               <option value="">Previously Booked Rooms</option>
             </select>
           </label>
+        </div>
+        <!-- manager interaction -->
+        <div class='manager-interactions'>
+          <label for="customer-list">Choose a Current Customer:</label>
+          <select tabindex="0" name="" id="customer-list">
+            <option value="">Choose customer</option>
+          </select>
           <hr>
           <label for="bookingDate">Select a Date:</label>
           <input tabindex="0" class="bookingDate" type="date">

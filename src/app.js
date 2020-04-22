@@ -48,7 +48,6 @@ class App {
       if (!this.isValidUserId(userId)) {
         return;
       }
-
       this.currentUser = new Customer(this.user.userData, userId);
       this.selectedUserId = userId;
       this.loadUserView();
@@ -60,11 +59,9 @@ class App {
     if (isNaN(userId)) {
       return false;
     }
-
     if (userId < 1 || userId > 50) {
       return false;
     }
-
     return true;
   }
 
